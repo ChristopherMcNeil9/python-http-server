@@ -52,8 +52,6 @@ def handle_connection(connection, address):
             connection.close()
             sys.exit()
 
-    # print(request)
-
     if 'GET' in request.split('\n', 1)[0]:
         message = 'HTTP/2 200 OK\nContent-Type: '
         path = request.split('\n', 1)[0].split(' ')[1][1:]
@@ -97,8 +95,6 @@ def handle_connection(connection, address):
                     else:
                         message = 'HTTP/2 404 Not Found\n\n<html><body><center><h3>Error 404: File not found</h3></center></body></html>'
                     message = message.encode('utf-8')
-
-        # print(message.decode('utf-8'))
 
         # sends the message over socket connection
         connection.sendall(message)

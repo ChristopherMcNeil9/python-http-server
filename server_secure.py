@@ -65,8 +65,6 @@ def handle_connection(connection, address):
             connection.close()
             sys.exit()
 
-    # print(request)
-
     if 'GET' in request.split('\n', 1)[0]:
         message = 'HTTP/2 200 OK\nContent-Type: '
         path = request.split('\n', 1)[0].split(' ')[1][1:]
